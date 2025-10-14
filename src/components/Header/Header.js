@@ -40,6 +40,7 @@ const Header = () => {
                 <li><a href="#events" onClick={closeMenu}>Events</a></li>
                 <li><a href="#team" onClick={closeMenu}>Team</a></li>
                 <li><a href="#sponsors" onClick={closeMenu}>Sponsors</a></li>
+                <li><a href="#gallery" onClick={closeMenu}>Gallery</a></li>
                 <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
             </ul>
             <button className="hamburger" id="hamburger-menu" aria-label={isMenuOpen ? "Close Menu" : "Open Menu"} onClick={toggleMenu}>

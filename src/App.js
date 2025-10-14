@@ -9,6 +9,8 @@ import About from './components/About/About';
 import Events from './components/Events/Events';
 import Team from './components/Team/Team';
 import Sponsors from './components/Sponsors/Sponsors';
+// Import the new component
+import Gallery from './components/Gallery/Gallery'; 
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
         <Events />
         <Team />
         <Sponsors />
+        {/* Add the Gallery component here */}
+        <Gallery /> 
       </main>
       <Footer />
     </>

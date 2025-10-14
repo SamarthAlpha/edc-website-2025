@@ -685,3 +685,120 @@
             .container { padding: 0 5%; }
             .logo-container { height: 50px; }
         }
+
+        /* src/App.css */
+
+/* == Gallery Section == */
+#gallery {
+    overflow: hidden; /* Prevents cards from showing when flying out */
+}
+
+.gallery-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    height: 60vh; /* Adjust height as needed */
+    min-height: 400px;
+    max-height: 600px;
+    perspective: 1200px; /* Adds depth for 3D transforms */
+}
+
+.card-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    
+    /* Core transition for all animations */
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Default state for cards in the stack (hidden) */
+    transform: scale(0.8) translateY(50px) rotateX(10deg);
+    opacity: 0;
+    pointer-events: none; /* Can't click hidden cards */
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* State: The card that just moved away */
+.gallery-card.prev {
+    transform: translateX(-120%) translateY(-20px) rotate(-20deg);
+    opacity: 0;
+}
+
+/* State: The currently visible card */
+.gallery-card.active {
+    transform: scale(1) translateY(0) rotateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* State: The card just behind the active one, peeking out */
+.gallery-card.next {
+    transform: scale(0.9) translateY(40px) rotateX(5deg);
+    opacity: 1; /* Make it visible */
+    pointer-events: none;
+}
+
+.gallery-nav {
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.gallery-nav button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid rgba(99, 102, 241, 0.5);
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(5px);
+    color: var(--light);
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-nav button:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+}
+
+/* Responsive adjustments for the gallery */
+@media (max-width: 768px) {
+    .gallery-container {
+        height: 50vh;
+    }
+    .gallery-nav {
+        bottom: -2rem;
+    }
+    .gallery-nav button {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+}
