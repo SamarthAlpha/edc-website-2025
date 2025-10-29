@@ -1,6 +1,6 @@
 // src/App.js
 import React from 'react';
-import './App.css';
+// import './App.css';
 
 import AnimatedBackground from './components/AnimatedBackground/AnimatedBackground';
 import Header from './components/Header/Header';

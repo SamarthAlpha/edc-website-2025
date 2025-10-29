@@ -116,7 +116,12 @@ const AnimatedBackground = () => {
         };
     }, []);
 
-    return <div className="animated-bg"><canvas id="particle-canvas" ref={canvasRef}></canvas></div>;
+    return (
+        // Add z-0 to the className string
+        <div className="fixed inset-0 z-0">
+        <canvas id="particle-canvas" ref={canvasRef}></canvas>
+        </div>
+    );
 };
 
 export default AnimatedBackground;
